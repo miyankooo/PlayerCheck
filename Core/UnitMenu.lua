@@ -1,7 +1,7 @@
 local _, ns = ...
 
-local ENTRY_TEXT = "Armory Link"
-local ENTRY_HELP = "Shows %s's armory link to copy, so you can see their gear, stats and professions in your browser."
+local ENTRY_TEXT = "Armory Links"
+local ENTRY_HELP = "Shows %s's armory links to copy, so you can see their gear and logs in your browser."
 
 -- Every unit menu Forever opens on a player: "MENU_UNIT_" plus the name UnitPopup_OpenMenu receives.
 local MENU_TAGS = {
@@ -25,7 +25,7 @@ local MENU_TAGS = {
 -- Unit menus pass the name and surname apart. Chat, rosters and the scoreboard pass one joined name,
 -- "First Surname" or the link form "First-Surname". Names hold no spaces or hyphens, so the first two
 -- parts are the name and surname, and anything after them is dropped.
-local function linkFor(name, surname)
+local function linksFor(name, surname, ruleset)
     if not name then
         return nil
     end
@@ -33,23 +33,25 @@ local function linkFor(name, surname)
     if first then
         name, surname = first, second
     end
-    local url = ns.ArmoryUrl(name, surname)
-    if url then
-        return NameUtil.GetFullNameWithoutRealm(name, surname), url
+    local links = ns.Links(name, surname, ruleset)
+    if links then
+        return NameUtil.GetFullNameWithoutRealm(name, surname), links
     end
 end
 
--- An NPC, such as a focused one, has no armory page.
+-- An NPC, such as a focused one, has no armory page. Every other menu shows a player from the player's own
+-- world, so they share the player's ruleset.
 local function readUnitPlayer(context)
     local unit = context.unit
     if unit and UnitExists(unit) and not UnitIsPlayer(unit) then
         return nil
     end
-    return linkFor(context.name, context.surname)
+    return linksFor(context.name, context.surname, ns.Ruleset())
 end
 
--- A Battle.net friend's menu carries the account, so the link needs the WoW character they play in this
--- region. characterName may hold the joined name; otherwise the surname comes from the character's GUID.
+-- A Battle.net friend's menu carries the account, so the links need the WoW character they play in this
+-- region. characterName may hold the joined name; otherwise the surname comes from the character's GUID. The
+-- account says nothing of their ruleset, so only the sites that need none are offered.
 local function readBNetPlayer(context)
     local info = context.bnetIDAccount and C_BattleNet.GetAccountInfoByID(context.bnetIDAccount)
     local game = info and info.gameAccountInfo
@@ -57,7 +59,7 @@ local function readBNetPlayer(context)
         return nil
     end
     local surname = game.playerGuid and select(7, GetPlayerInfoByGUID(game.playerGuid))
-    return linkFor(game.characterName, surname)
+    return linksFor(game.characterName, surname)
 end
 
 -- Blizzard's unit menus open with the player's name as their first element (UnitPopupShared.lua:112), so
@@ -68,14 +70,14 @@ local FIRST_ENTRY = 2
 -- read runs in pcall. canaccessvalue cannot guard it: it rejects secrets from tainted callers.
 local function entryFrom(readPlayer)
     return function(_, root, context)
-        local ok, displayName, url = pcall(readPlayer, context)
-        if not ok or not url then
+        local ok, displayName, links = pcall(readPlayer, context)
+        if not ok or not links then
             return
         end
         -- Deferred so the menu closes before the dialog takes keyboard focus.
         local button = MenuUtil.CreateButton(ENTRY_TEXT, function()
             C_Timer.After(0, function()
-                ns.ShowCopyDialog(displayName, url)
+                ns.ShowCopyDialog(displayName, links)
             end)
         end)
         button:SetTooltip(function(tooltip)

@@ -1,6 +1,6 @@
 ## Interface: 16001
 ## Title: Player Armory Link
-## Notes: Adds an Armory Link entry to player menus with the player's WoW Forever armory link.
+## Notes: Adds Armory Links to player menus: the player's WoW Forever armory, Raider.IO, Warcraft Logs and more, ready to copy.
 ## Author: miyanko
 ## Version: @project-version@
 ## Category: User Interface

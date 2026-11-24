@@ -1,16 +1,16 @@
 local addonName, ns = ...
 
--- The addon has no window or settings page: its one surface is Armory Link on player menus. So the welcome
+-- The addon has no window or settings page: its one surface is Armory Links on player menus. So the welcome
 -- line has no link; it says what the addon does, where to start and where the commands are. The help line
 -- opens with the same where-to-start sentence.
-local START = "Right-click a player's portrait or chat name and pick Armory Link."
-local WELCOME = "Copies any player's armory link, so you can see their gear in your browser. " .. START
+local START = "Right-click a player's portrait or chat name and pick Armory Links."
+local WELCOME = "Copies any player's armory links, so you can see their gear and logs in your browser. " .. START
     .. " Type /pal help for the commands."
 local HELP = START .. " Type /pal intro to see the welcome line again, or /pal help for this list."
 local UNKNOWN = "Unknown command. Type /pal help for the list."
 
--- No saved table yet means the account's first login with the addon. The table stays empty, since the
--- addon has no settings and no help tip whose flag it would hold.
+-- No saved table yet means the account's first login with the addon. The table holds only the dialog's
+-- Close After Copying choice; the addon has no help tip whose flag it would hold.
 local firstRun = false
 
 EventUtil.ContinueOnAddOnLoaded(addonName, function()
