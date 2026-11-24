@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/miyankooo/PlayerCheck/compare/v1.2.0...v1.3.0) (2026-11-24)
+
+
+### Features
+
+* Armory Links opens one window with the player's armory, Raider.IO, Warcraft Logs, Armory WoW Forever and aotc.gg pages ([1d2d92d](https://github.com/miyankooo/PlayerCheck/commit/1d2d92d7e161f2351ba51266c295f9cfa5bb10a3))
+* The addon is now PlayerCheck, with the commands /pc help and /pc intro ([db49d01](https://github.com/miyankooo/PlayerCheck/commit/db49d01d34cc64f38c456d9300a9a116deb54512))
+
 ## [1.2.0](https://github.com/miyankooo/PlayerArmoryLink/compare/v1.1.0...v1.2.0) (2026-11-13)
 
 
