@@ -1,12 +1,12 @@
 ## Interface: 16001
-## Title: Player Armory Link
+## Title: PlayerCheck
 ## Notes: Adds Armory Links to player menus: the player's WoW Forever armory, Raider.IO, Warcraft Logs and more, ready to copy.
 ## Author: miyanko
 ## Version: @project-version@
 ## Category: User Interface
 ## IconTexture: Interface\Icons\achievement_general_stayclassy
 ## X-Curse-Project-ID: 1785993
-## SavedVariables: PlayerArmoryLinkDB
+## SavedVariables: PlayerCheckDB
 
 Core\Addon.lua
 Core\Link.lua

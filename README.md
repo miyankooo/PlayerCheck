@@ -1,6 +1,6 @@
-<img src="https://raw.githubusercontent.com/miyankooo/PlayerArmoryLink/main/.github/icon.png" width="64" height="64" alt="">
+<img src="https://raw.githubusercontent.com/miyankooo/PlayerCheck/main/.github/icon.png" width="64" height="64" alt="">
 
-# Player Armory Link
+# PlayerCheck
 
 A WoW Forever addon that adds Armory Links to every player right-click menu. It shows the player's pages on the Blizzard armory, Raider.IO, Warcraft Logs, Armory WoW Forever and aotc.gg, ready to copy, so you can see their gear, logs and rankings in your browser without typing their name and surname.
 
@@ -21,7 +21,7 @@ A WoW Forever addon that adds Armory Links to every player right-click menu. It 
 3. Click a link, or press Tab to reach it, then press Cmd+C on macOS or Ctrl+C on Windows.
 4. Paste the link into your browser.
 
-Commands: `/pal intro` and `/pal help`.
+Commands: `/pc intro` and `/pc help`.
 
 ## Good to know
 

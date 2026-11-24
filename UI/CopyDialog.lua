@@ -170,7 +170,7 @@ local dialog
 
 -- Off only when the player unticked Close After Copying.
 local function closesOnCopy()
-    return PlayerArmoryLinkDB.closeOnCopy ~= false
+    return PlayerCheckDB.closeOnCopy ~= false
 end
 
 -- After the copy: the row gets its mark, the copy is confirmed in green like Blizzard's own short notices, and
@@ -248,7 +248,7 @@ local function createDialog()
 
     frame.closeOnCopy = CreateCheckbox(frame, CLOSE_LABEL)
     frame.closeOnCopy:SetScript("OnClick", function(self)
-        PlayerArmoryLinkDB.closeOnCopy = self:GetChecked()
+        PlayerCheckDB.closeOnCopy = self:GetChecked()
     end)
     -- CheckboxWithLabelTemplate sets no OnEnter (CheckButtonTemplates.xml:78-89).
     AttachTooltip(frame.closeOnCopy, function(tooltip)
