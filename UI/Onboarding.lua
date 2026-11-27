@@ -1,10 +1,10 @@
 local addonName, ns = ...
 
--- The addon has no window or settings page: its one surface is Armory Links on player menus. So the welcome
+-- The addon has no window or settings page: its one surface is its entry on player menus. So the welcome
 -- line has no link; it says what the addon does, where to start and where the commands are. The help line
 -- opens with the same where-to-start sentence.
-local START = "Right-click a player's portrait or chat name and pick Armory Links."
-local WELCOME = "Copies any player's armory links, so you can see their gear and logs in your browser. " .. START
+local START = "Right-click a player's portrait or chat name and pick PlayerCheck."
+local WELCOME = "Shows links to any player's gear, logs and rankings, ready to copy into your browser. " .. START
     .. " Type /pc help for the commands."
 local HELP = START .. " Type /pc intro to see the welcome line again, or /pc help for this list."
 local UNKNOWN = "Unknown command. Type /pc help for the list."

@@ -5,7 +5,7 @@
 Check any player's gear, logs and rankings from one right-click, without typing their name.
 
 - **Right-click** a player
-- **Pick** Armory Links
+- **Pick** PlayerCheck
 - **Copy** their Blizzard armory, Raider.IO, Warcraft Logs, Armory WoW Forever or aotc.gg link
 
 ## Why use it
@@ -25,7 +25,7 @@ Check any player's gear, logs and rankings from one right-click, without typing 
 ## Quick start
 
 1. Right-click a player portrait, chat name or roster row
-2. Pick **Armory Links**
+2. Pick **PlayerCheck**
 3. Click a link, or press Tab to reach it, then press Cmd+C on macOS or Ctrl+C on Windows
 4. Paste the link into your browser
 

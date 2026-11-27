@@ -1,6 +1,6 @@
 ## Interface: 16001
 ## Title: PlayerCheck
-## Notes: Adds Armory Links to player menus: the player's WoW Forever armory, Raider.IO, Warcraft Logs and more, ready to copy.
+## Notes: Adds PlayerCheck to player menus: links to the player's WoW Forever armory, Raider.IO, Warcraft Logs and more, ready to copy.
 ## Author: miyanko
 ## Version: @project-version@
 ## Category: User Interface

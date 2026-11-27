@@ -1,6 +1,5 @@
 local addonName, ns = ...
 
-local TITLE = "Armory Links"
 local COPIED_FORMAT = "%s link copied."
 local CLOSE_LABEL = "Close After Copying"
 local CLOSE_HELP = "Closes this window when you copy a link. Turn it off to copy several links in a row."
@@ -236,7 +235,7 @@ end
 -- Whose links as the subject line, how to copy them in white body text, one row per site, then the option.
 -- Above the centre so the character stays visible.
 local function createDialog()
-    local frame = CreateDialog(addonName .. "Dialog", TITLE, WIDTH, nil, { point = "CENTER", y = 140 })
+    local frame = CreateDialog(addonName .. "Dialog", ns.title, WIDTH, nil, { point = "CENTER", y = 140 })
     frame.name = frame:AddText(GameFontNormalLarge, "")
     frame:AddText(GameFontHighlight, COPY_HINT, GAP)
     frame.listTop = frame.contentHeight

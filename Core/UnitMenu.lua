@@ -1,7 +1,6 @@
 local _, ns = ...
 
-local ENTRY_TEXT = "Armory Links"
-local ENTRY_HELP = "Shows %s's armory links to copy, so you can see their gear and logs in your browser."
+local ENTRY_HELP = "Shows links to %s's gear, logs and rankings, ready to copy into your browser."
 
 -- Every unit menu Forever opens on a player: "MENU_UNIT_" plus the name UnitPopup_OpenMenu receives.
 local MENU_TAGS = {
@@ -75,24 +74,24 @@ local function entryFrom(readPlayer)
             return
         end
         -- Deferred so the menu closes before the dialog takes keyboard focus.
-        local button = MenuUtil.CreateButton(ENTRY_TEXT, function()
+        local button = MenuUtil.CreateButton(ns.title, function()
             C_Timer.After(0, function()
                 ns.ShowCopyDialog(displayName, links)
             end)
         end)
         button:SetTooltip(function(tooltip)
-            GameTooltip_SetTitle(tooltip, ENTRY_TEXT)
+            GameTooltip_SetTitle(tooltip, ns.title)
             GameTooltip_AddNormalLine(tooltip, ENTRY_HELP:format(displayName))
         end)
 
         -- Insert is the description's own method that CreateButton appends with (Menu.lua:427), here given
         -- the index under the name. Menu.PopulateDescription runs this after Blizzard's generator, so the
-        -- name is already in place. A menu that already has a divider under the name, such as a recent
-        -- ally's (hasMainTitleDivider, UnitPopupShared.lua:133), gets no second one.
-        root:Insert(MenuUtil.CreateTitle(ns.title), FIRST_ENTRY)
-        root:Insert(button, FIRST_ENTRY + 1)
+        -- name is already in place. The entry carries the addon's title, so it needs no title above it. A
+        -- menu that already has a divider under the name, such as a recent ally's (hasMainTitleDivider,
+        -- UnitPopupShared.lua:133), gets no second one.
+        root:Insert(button, FIRST_ENTRY)
         if not context.hasMainTitleDivider then
-            root:Insert(MenuUtil.CreateDivider(), FIRST_ENTRY + 2)
+            root:Insert(MenuUtil.CreateDivider(), FIRST_ENTRY + 1)
         end
     end
 end
