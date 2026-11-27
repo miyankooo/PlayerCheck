@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/miyankooo/PlayerCheck/compare/v1.3.0...v1.4.0) (2026-11-27)
+
+
+### Features
+
+* The right-click entry and the copy window are now named PlayerCheck, like the addon ([1eb3eac](https://github.com/miyankooo/PlayerCheck/commit/1eb3eacce0c968ea319df751ceae93f026e2c5ee))
+
 ## [1.3.0](https://github.com/miyankooo/PlayerCheck/compare/v1.2.0...v1.3.0) (2026-11-24)
 
 
